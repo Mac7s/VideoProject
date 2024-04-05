@@ -15,6 +15,10 @@ class Video extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function category():BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function videoOwner(){
         return $this->user->name;

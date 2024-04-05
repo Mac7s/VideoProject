@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class,'index']);
+Route::get('/', [IndexController::class,'index'])->name('index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,3 +29,6 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('categories/{category:name}/videos',[CategoryController::class,'index'])->name('categories.videos.index');

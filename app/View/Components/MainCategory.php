@@ -2,10 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Category;
 use Illuminate\View\Component;
 
 class MainCategory extends Component
 {
+    public $categories;
     /**
      * Create a new component instance.
      *
@@ -13,7 +15,7 @@ class MainCategory extends Component
      */
     public function __construct()
     {
-        //
+        $this->categories = Category::all();
     }
 
     /**
