@@ -7,7 +7,7 @@
         </div>
         <div class="video-info">
             <a href="#" class="title">{{$video->title}} </a>
-            <a class="channel-name" href="#">مهرداد سامی<span>
+            <a class="channel-name" href="#">{{$video->videoOwner()}}<span>
                     <i class="fa fa-check-circle"></i></span></a>
             <span class="views"><i class="fa fa-eye"></i>{{$video->view_count}}بازدید </span>
             <span class="date"><i class="fa fa-clock-o"></i>{{$video->created_at}} </span>

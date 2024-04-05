@@ -26,6 +26,7 @@
                 <!--  -->
             </div>
             <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
+                @auth
                 <div class="dropdown">
                     <a data-toggle="dropdown" href="#" class="user-area">
                         <div class="thumb"><img
@@ -36,12 +37,24 @@
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu account-menu">
-                        <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
                         <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
-                        <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
-                        <li><a href="#"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
+                        <li><a href="{{route('logout')}}"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
                     </ul>
                 </div>
+                @endauth
+                @guest
+                <div class="dropdown">
+                    <a data-toggle="dropdown" href="#" class="user-area">
+                        <h2>احراز هویت</h2>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    
+                    <ul class="dropdown-menu account-menu">
+                        <li><a href="{{route('login')}}"><i ></i>لاگین</a></li>
+                        <li><a href="{{route('register')}}"><i ></i>ثبت نام</a></li>
+                    </ul>
+                </div>
+                @endguest
             </div>
         </div><!-- // row -->
     </div><!-- // container-full -->

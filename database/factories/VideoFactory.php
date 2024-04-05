@@ -21,6 +21,7 @@ class VideoFactory extends Factory
             'lenght'=>$this->faker->randomNumber(3,false),
             'thumbnail'=>'https://picsum.photos/200/120?random='.rand(1,241),
             'url'=>$this->faker->url(),
+            'user_id'=>1,
             'view_count'=>0,
             'description'=>$this->faker->realText()
         ];
