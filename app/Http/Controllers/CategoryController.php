@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(Category $category){
-        $videos = $category->videos()->paginate(12);
+        $videos = $category->videos()->paginate(6);
         return view('category.index',[
             'categoryName'=>$category->name,
             'videos'=>$videos

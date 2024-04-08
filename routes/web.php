@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,3 +34,6 @@ require __DIR__.'/auth.php';
 
 
 Route::get('categories/{category:name}/videos',[CategoryController::class,'index'])->name('categories.videos.index');
+
+Route::get('videos/{video:slug}',[VideoController::class,'show'])->name('videos.show'); 
+Route::post('videos/{video:slug}/comments',[CommentController::class,'store'])->name('comments.store');

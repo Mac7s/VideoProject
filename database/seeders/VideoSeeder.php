@@ -18,7 +18,7 @@ class VideoSeeder extends Seeder
     {
         $users = User::all();
         foreach($users as $user){
-            Video::factory()->count(10)->create([
+            Video::factory()->count(10)->hasComments(5,['user_id'=>$user->id])->create([
                 'user_id'=>$user->id
             ]);
         }

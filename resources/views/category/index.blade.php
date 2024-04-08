@@ -11,7 +11,9 @@
         
     </div>
     <!-- // row -->
+    
 </div>
 
 
+    {{$videos->links()}}        
 @endsection

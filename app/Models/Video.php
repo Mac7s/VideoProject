@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Video extends Model
 {
@@ -22,5 +24,17 @@ class Video extends Model
 
     public function videoOwner(){
         return $this->user->name;
+    }
+
+    protected function lenght(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => gmdate("i:s",$value),
+        );
+    }
+
+    public function comments():HasMany
+    {
+        return $this->hasMany(Comment::class);
     }
 }

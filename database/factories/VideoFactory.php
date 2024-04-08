@@ -18,8 +18,9 @@ class VideoFactory extends Factory
     {
         return [
             'title'=>$this->faker->name(),
+            'slug'=>$this->faker->word().random_int(233,55443),
             'lenght'=>$this->faker->randomNumber(3,false),
-            'thumbnail'=>'https://picsum.photos/200/120?random='.rand(1,241),
+            'thumbnail'=>'https://picsum.photos/190/120?random='.rand(1,241),
             'url'=>$this->faker->url(),
             'user_id'=>1,
             'category_id'=>rand(1,3),
