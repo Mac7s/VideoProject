@@ -5,6 +5,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,5 @@ Route::get('categories/{category:name}/videos',[CategoryController::class,'index
 
 Route::get('videos/{video:slug}',[VideoController::class,'show'])->name('videos.show'); 
 Route::post('videos/{video:slug}/comments',[CommentController::class,'store'])->name('comments.store');
+Route::get('videos/{video:slug}/download',[VideoController::class,'download'])->name('videos.download');
+

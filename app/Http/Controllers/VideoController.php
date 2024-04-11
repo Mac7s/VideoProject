@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Storage;
 class VideoController extends Controller
 {
     public function show(Video $video){
+        $video->view_count += 1;
+        $video->save();
         $comments = $video->comments;
         $videos = $video->category->videos()->take(12)->get() ?? $video->category->videos;
         return view('show')->with(['video'=>$video,'related_videos'=>$videos,'comments'=>$comments]);
@@ -25,6 +27,11 @@ class VideoController extends Controller
     public function store(StoreVideoRequest $request){
         (new StoreVideo)->store($request->all());
         return redirect()->route('index')->with('success','عملیات موفقیت آمیز بود');
+    }
+
+    public function download(Video $video){
+        $url = str_replace('storage/','',$video->url);
+        return Storage::disk('public')->download($url);
     }
 
 }
