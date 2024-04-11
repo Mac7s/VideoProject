@@ -10,6 +10,10 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'video_id','user_id','description'
+    ];
+
     public function video():BelongsTo{
         return $this->belongsTo(Video::class);
     }

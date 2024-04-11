@@ -2,10 +2,6 @@
 @section('content')
 <div class="site-output">
     <!-- // col-md-2 -->
-
-
-
-
     <div id="all-output" class="col-md-12">
         <div class="row">
             <!-- Watch -->
@@ -17,7 +13,7 @@
                     <div class="video-code">
                         <video controls style="height: 100%; width: 100%;">
                             <source
-                                src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+                                src="{{asset($video->url)}}"
                                 type="video/mp4">
                         </video>
                     </div><!-- // video-code -->
@@ -28,18 +24,15 @@
                             <li><a class="like" href="#">1250 <i class="fa fa-thumbs-up"></i></a></li>
                         </ul>
                         <ul class="social_link">
-                            <li><a class="facebook" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <li>
+                                <a href="">  
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                      </svg>
+                                </a>
                             </li>
-                            <li><a class="youtube" href="#"><i class="fa fa-youtube-play"
-                                        aria-hidden="true"></i></a></li>
-                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            </li>
-                            <li><a class="google" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                            </li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            </li>
-                            <li><a class="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                        </ul><!-- // Social -->
+                            </ul><!-- // Social -->
                     </div><!-- // video-share -->
                     <!-- // Video Player -->
 
@@ -51,16 +44,14 @@
                         </div>
                         <div class="chanel-info">
                             <a class="title" href="#">{{$video->videoOwner()}}</a>
-                            <span class="subscribers">436,414 اشتراک</span>
                         </div>
-                        <a href="#" class="subscribe">اشتراک</a>
                     </div>
                     <!-- // Chanels Item -->
 
 
                     <!-- Comments -->
                     <div id="comments" class="post-comments">
-                        <h3 class="post-box-title"><span>19</span> نظرات</h3>
+                        <h3 class="post-box-title"><span>{{$comments->count()}}</span> نظرات</h3>
                         <ul class="comments-list">
                             @foreach ($comments as $comment)
                                 <li>
@@ -128,9 +119,9 @@
                     <div class="related-video-item">
                         <div class="thumb">
                             <small class="time">{{$video->lenght}}</small>
-                            <a href="#"><img src="{{$video->thumbnail}}" alt=""></a>
+                            <a href="{{route('videos.show',['video'=>$video])}}"><img src="{{$video->thumbnail}}" alt=""></a>
                         </div>
-                        <a href="#" class="title">{{$video->title}} </a>
+                        <a href="{{route('videos.show',['video'=>$video])}}" class="title">{{$video->title}} </a>
                         <a class="channel-name" href="#">{{$video->videoOwner()}}<span>
                                 <i class="fa fa-check-circle"></i></span></a>
                     </div>

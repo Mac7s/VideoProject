@@ -29,15 +29,12 @@
                 @auth
                 <div class="dropdown">
                     <a data-toggle="dropdown" href="#" class="user-area">
-                        <div class="thumb"><img
-                                src="https://s.gravatar.com/avatar/dfca86228f1ed5f0554827a8d907172a?s=80" alt="">
-                        </div>
-                        <h2>مهرداد سامی</h2>
-                        <h3>25 اشتراک</h3>
+
+                        <h2>{{auth()->user()->name}}</h2>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu account-menu">
-                        <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
+                        <li><a href="{{route('videos.create')}}"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
                         <li><a href="{{route('logout')}}"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
                     </ul>
                 </div>
